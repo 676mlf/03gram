@@ -3,6 +3,10 @@ package cn.detu.weibe.exception;
 import cn.detu.weibe.response.JsonResult;
 import cn.detu.weibe.response.StatusCode;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,6 +34,20 @@ public class GlobalExceptionHandler {
      ExceptionHandler:该方法为异常处理方法,在该方法内部定义异常处理逻辑;
         该方法有一个参数:异常类型,用来接收Controller中抛出的异常对象
      */
+    @ExceptionHandler({
+            InternalAuthenticationServiceException.class,//用户名错误异常
+            BadCredentialsException.class   //密码错误异常
+    })
+    public JsonResult doHandleAuthenticationException(AuthenticationException e){
+        if (e instanceof BadCredentialsException){
+            return new JsonResult(StatusCode.PASSWORD_ERROR);
+        }
+        return new JsonResult(StatusCode.USERNAME_ERROR);
+    }
+
+
+
+
     @ExceptionHandler
     public JsonResult doHandleRuntimeException(RuntimeException ex){
         /*

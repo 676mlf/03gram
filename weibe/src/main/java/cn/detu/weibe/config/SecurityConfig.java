@@ -1,9 +1,13 @@
 package cn.detu.weibe.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 import javax.servlet.ServletException;
@@ -33,8 +37,22 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
             }
         });
 
-
-
-
+        //禁用跨越攻击防御
+        http.csrf().disable();
     }
+    //配置认证管理器
+    @Bean//通过spring框架装配
+    @Override
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        //设置不加密
+        return NoOpPasswordEncoder.getInstance();
+    }
+
+
+
 }

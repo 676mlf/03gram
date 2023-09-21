@@ -10,6 +10,10 @@ import cn.detu.weibe.response.StatusCode;
 import cn.detu.weibe.service.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -30,18 +34,17 @@ public class UserService implements IUserService {
         user.setCreated(new Date());
         mapper.insert(user);
     }
+    @Autowired
+    AuthenticationManager manager;
 
     @Override
     public void login(UserLoginDTO userLoginDTO) {
-        UserVO userVO= mapper.selectByUsername(userLoginDTO.getUsername());
-//        没查到
-        if(userVO==null){
-            throw new ServiceException(StatusCode.USERNAME_ERROR);
-        }
-//        密码不相等 密码错误
-        if(!userVO.getPassword().equals(userLoginDTO.getPassword())){
-            throw new ServiceException(StatusCode.PASSWORD_ERROR);
-        }
-
+        Authentication result = manager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        userLoginDTO.getUsername(),userLoginDTO.getPassword()));
+        //把认证结果保存到Security框架的上下文当中
+        SecurityContextHolder.getContext().setAuthentication(result);
+        //从认证结果中得到当事人(当前登录成功的,装着用户信息的对象)
     }
+
 }
