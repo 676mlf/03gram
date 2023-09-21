@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.9/theme-chalk/index.css">
+
+</head>
+<body>
+<div id="app">
+  <template>
+    <el-select v-model="value" placeholder="请选择">
+      <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+      </el-option>
+    </el-select>
+    <h1>{{value}}</h1>
+  </template>
+
+  <template>
+    <el-select v-model="price" placeholder="请选择">
+      <el-option
+              v-for="(item,i) in arr"
+              :key="i"
+              :label="item.title"
+              :value="item.price">
+      </el-option>
+    </el-select>
+    <h1>{{price}}</h1>
+  </template>
+
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.staticfile.org/element-ui/2.15.9/index.min.js"></script>
+<script>
+  let v = new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        arr:[{title:"洗衣机",price:5000},
+          {title:"电视",price:5220},
+          {title:"空调",price:1500},
+    ],price:"",
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: ''
+
+
+
+      }
+    },
+    methods:{
+
+    }
+  })
+</script>
+</html>

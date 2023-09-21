@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="text" id="i2">
+<input type="button" value="加" onclick="f1()">
+<input type="button" value="减" onclick="f2()">
+<input type="button" value="乘" onclick="f3()">
+<input type="button" value="除" onclick="f4()">
+<h1>结果：<span></span></h1>
+
+<script>
+    let a=document.querySelector("#i1");
+    let c=document.querySelector("#i2");
+    let s=document.querySelector("span");
+
+    function f1(){
+        if(isNaN(i1.value||isNaN(i2.value))){
+            s.innerText="错误"
+            return;
+        }
+        s.innerText=a.value*1+c.value*1;
+    }
+    function f2(){
+        if(isNaN(i1.value||isNaN(i2.value))){
+            s.innerText="错误"
+            return;
+        }
+        s.innerText=a.value*1-c.value*1;
+    }
+    function f3(){
+        if(isNaN(i1.value||isNaN(i2.value))){
+            s.innerText="错误"
+            return;
+        }
+        s.innerText=a.value*1*c.value*1;
+    }
+    function f4(){
+        if(isNaN(i1.value||isNaN(i2.value))){
+            s.innerText="错误"
+            return;
+        }
+        s.innerText=a.value*1/c.value*1;
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

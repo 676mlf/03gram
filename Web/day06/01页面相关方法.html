@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="添加" onclick="f()">
+<div> </div>
+<script>
+    function f(){
+        let p =document.createElement("p");
+        p.innerText="这是个p标签";
+        document.body.append(p);
+        let i=document.createElement("img");
+        i.src="../a.jpg";
+        i.width=100;
+        document.body.append(i);
+
+        let div=document.querySelector("div")
+        let h1=document.createElement("h1")
+        h1.innerText="这是h1";
+        div.append(h1);
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

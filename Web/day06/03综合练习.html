@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td{width: 100px}
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption> 个人信息</caption>
+        <tr>
+            <td>照片</td> <td id="pic_td"></td>
+        </tr>
+        <tr>
+            <td>姓名</td> <td id="name_td"></td>
+        </tr>
+        <tr>
+            <td>年龄</td> <td id="age_td"></td>
+        </tr>
+        <tr>
+            <td>好友</td> <td id="fri_td"></td>
+        </tr>
+    </table>
+    <input type="button" value="加载数据" onclick="f()">
+    <script>
+        let p={};
+        p.name="张三";
+        p.age=19;
+        p.run=function (){
+            console.log(this.name+this.age);
+        }
+        p.run();
+
+        let personInfo = {name:"传奇哥",age:18,url:"../a.jpg",
+            friends:["孙尚香","武则天","貂蝉"]}
+        //把对象中的数据显示到页面中
+        let nameTd = document.querySelector("#name_td");
+        let ageTd = document.querySelector("#age_td");
+        let picTd = document.querySelector("#pic_td");
+        let friendsTd = document.querySelector("#friends_td");
+        nameTd.innerText = personInfo.name;
+        ageTd.innerText = personInfo.age;
+
+
+    </script>
+
+
+
+</body>
+</html>

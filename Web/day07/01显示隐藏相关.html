@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>{{info}}
+<p v-if="true">刘德华</p>
+<p v-else>张学友</p>
+<p v-show="true">郭富城</p>
+
+
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+    let v=new Vue({
+        el:"body>div",
+        data:{
+            info:"显示隐藏相关"
+        }
+    })
+
+    </script>
+</body>
+</html>

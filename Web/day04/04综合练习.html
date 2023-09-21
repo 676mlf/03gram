@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{  font: 12px "simhei", Arial, Helvetica, sans-serif;color: #666; }
+        body>div{ width: 1000px; margin: 0 auto}
+        #t_l{ width: 611px;height: 376px;background-color: #e8e8e8;float: left}
+        #t_r{ width: 375px;height: 376px;background-color: #e8e8e8;float: right}
+        #t_,#b{overflow: hidden; margin-bottom: 10px}
+        #b_l{width: 366px;height: 233px;background-color: #e8e8e8;float: left}
+        #b_r{float: right}
+        #b_r>div{ width: 198px;height: 233px;background-color: #e8e8e8;float: left;margin-left: 10px}
+             /*左上相关样式*/
+        #t_l>div{ width: 245px;height: 232px;margin: 68px 0 0 36px}
+        #t_p,#t_s{font-size: 32px;color: #333333;margin-bottom: 12px}
+        #t_ a,#t_r a{width: 132px;height: 40px;background-color: #0aa1ed;display: block;border-radius: 4px;
+        text-decoration: none;font-size: 20px;color: white;text-align: center;line-height: 40px;
+        }
+        #t_l>img{width: 318px;height: 319px;right: 30px;top: 30px;position: absolute;}
+        #t_l{position: relative;}
+        /*   缩放动画*/
+        /*缩放持续时间*/
+        img{transition-duration: 1s;}
+        /*把图片缩放1.1被*/
+        img:hover{transform: scale(1.1)}
+    /*    右上相关样式*/
+        #t_r>div{
+            width: 253px;height: 232px;margin: 39px 0 0 25px;
+        }
+        #t_r>img{width: 318px;height: 319px;right: 30px;top: 30px;position: absolute;
+        }
+        #t_r{position: relative}
+
+
+
+
+    </style>
+</head>
+<body>
+<div>
+    <div id="t_">
+        <div id="t_l">
+            <div>
+                <p id="t_p">灵越 燃7000系列</p>
+                <p >酷睿双核i5处理器|256GB SSD|8GB显存 <br>
+                    英特尔HD显卡620含共享显卡内存
+                </p>
+                <p >￥4999.00</p>
+                <a href="">查看详情</a>
+        </div>
+            <img src="img1.png" alt="">
+        </div>
+        <div id="t_r">
+            <div>
+                <p id="t_s" >颜值 框不住</p>
+                <p >酷睿双核i5处理器|256GB SSD|8GB显存 <br>
+                    英特尔HD显卡620含共享显卡内存
+                </p>
+                <p >￥6888.00</p>
+                <a href="" >查看详情</a>
+
+
+        </div>
+            <img src="img_2.png" alt=""></div>
+
+        </div>
+
+    <div id="b">
+        <div id="b_l"></div>
+        <div id="b_r"> <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text">
+<input type="button" value="按钮" onclick="f()">
+<div>这是div</div>
+<span>这是span</span>
+<p id="p1">p1</p>
+<p id="p2">p2</p>
+<script>
+    function f(){
+    //    得到div
+        let d=document.querySelector("div");
+    //    修改div文本
+        d.innerText="今天星期五";
+    //    得到span
+        let s=document.querySelector("span");
+        s.innerText="值变了";
+    //    得到p
+        let p=document.querySelector("#p1");
+        p.innerText="我是宝宝";
+        let t=document.querySelector("#p2");
+        t.innerText="我是爹爹";
+        //得到文本框
+        let i=document.querySelector("input")
+    //    修改控件的值
+        i.value="我是文本";
+
+
+
+
+
+
+    }
+
+</script>
+
+
+</body>
+</html>

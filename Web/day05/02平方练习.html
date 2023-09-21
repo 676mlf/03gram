@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text">
+<input type="button" value="平方" onclick="f1()">
+<input type="button" value="相加" onclick="f2()">
+<h1>结果: <span></span></h1>
+
+<script>
+    let d=document.querySelector("input");
+    let s=document.querySelector("span");
+    function f1(){
+        if(isNaN(d.value)){
+            s.innerText="输入错误";
+            return
+        }
+
+        s.innerText=d.value*d.value;
+    }
+    function f2(){
+        if(isNaN(d.value)){
+            s.innerText="输入错误";
+            return
+        }
+        s.innerText=d.value*1+d.value*1;
+
+    }
+
+</script>
+
+</body>
+</html>

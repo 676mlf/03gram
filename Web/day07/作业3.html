@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.9/theme-chalk/index.css">
+</head>
+<body>
+<div id="app">
+  <el-container>
+    <el-header style="background-color: #0aa1ed">
+      <h1 style="font-size: 22px;color: white">
+        CoolShark后台管理系统
+        <span style="float: right;font-size: 15px">
+          欢迎XXX回来
+          <a href="">退出登录</a>
+        </span>
+      </h1>
+    </el-header>
+    <el-container>
+      <el-aside width="200px">
+        <el-menu>
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-s-flag">分类管理</i>
+            </template>
+            <el-menu-item index="1-1">分类列表</el-menu-item>
+            <el-menu-item index="1-2">添加分类</el-menu-item>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-picture">轮播图管理</i>
+            </template>
+            <el-menu-item index="2-1">轮播图列表</el-menu-item>
+            <el-menu-item index="2-2">添加轮播图</el-menu-item>
+          </el-submenu>
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="el-icon-shopping-cart-2">商品管理</i>
+            </template>
+            <el-menu-item index="3-1">商品列表</el-menu-item>
+            <el-menu-item index="3-2">添加商品</el-menu-item>
+          </el-submenu>
+
+        </el-menu>
+      </el-aside>
+      <el-main><el-table :data="categoryArr">
+        <el-table-column type="index" label="编号"></el-table-column>
+        <el-table-column prop="name" label="分类名称"></el-table-column>
+        <el-table-column label="操作">
+          <template slot-scope="scope">
+            <el-button size="mini" type="danger"
+                       @click="handleDelete(scope.$index,scope.row)">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table></el-main>
+    </el-container>
+  </el-container>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.staticfile.org/element-ui/2.15.9/index.min.js"></script>
+<script>
+  let v = new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        categoryArr:[{name:"精彩活动"},{name:"精品女装"},{name:"品牌男装"}]
+
+      }
+    },
+    methods:{
+      handleDelete(i,c) {
+        if (confirm("您确认删除" + c.name + "吗?")) {
+          v.categoryArr.splice(i, 1);
+        }
+      }
+
+    }
+  })
+</script>
+</html>

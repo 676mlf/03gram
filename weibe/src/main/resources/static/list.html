@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>微博列表页面</h1>
+    <input type="button" value="加载微博数据" @click="load()">
+
+    <div v-for="w in arr">
+        <h3>{{w.nickname}}说:{{w.content}}</h3>
+    </div>
+</div>
+<script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+<!--引入Axios框架-->
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            arr:[]
+        },
+        methods:{
+            load(){
+                axios.get("/v1/weibos/").then(function (response) {
+                    //response.data得到JsonResult
+                    //response.data.data得到服务器响应的
+                    // 装着WeiboIndexVO的集合(Java语言中的集合到这里JS后转成了数组)
+                    v.arr = response.data.data;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
