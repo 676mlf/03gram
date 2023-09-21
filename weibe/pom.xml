@@ -69,6 +69,15 @@
             <version>4.1.0</version>
         </dependency>
 
+        <!-- Spring Boot支持Spring Security的依赖项，用于处理认证与授权 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+
+
+
 
 
 
