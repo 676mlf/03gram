@@ -47,4 +47,6 @@ public class UserService implements IUserService {
         //从认证结果中得到当事人(当前登录成功的,装着用户信息的对象)
     }
 
+
+
 }

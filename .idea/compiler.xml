@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="weibe" />
+        <module name="baking" />
         <module name="jsd2305-03" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="baking" options="-parameters" />
       <module name="weibe" options="-parameters" />
       <module name="weibo" options="-parameters" />
     </option>
