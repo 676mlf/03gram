@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.baking.mapper.BannerMapper">
+    <select id="selectForIndex"
+            resultType="cn.tedu.baking.pojo.vo.BannerindexVO">
+        SELECT id, img_url
+        FROM t_banner
+        order by sort
+    </select>
+</mapper>
