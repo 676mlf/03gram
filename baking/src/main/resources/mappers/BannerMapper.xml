@@ -5,8 +5,6 @@
 <mapper namespace="cn.tedu.baking.mapper.BannerMapper">
     <select id="selectForIndex"
             resultType="cn.tedu.baking.pojo.vo.BannerindexVO">
-        SELECT id, img_url
-        FROM t_banner
-        order by sort
+        SELECT id,img_url FROM t_banner ORDER BY sort
     </select>
 </mapper>

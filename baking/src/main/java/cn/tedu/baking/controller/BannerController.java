@@ -14,7 +14,7 @@ public class BannerController {
     @Autowired
     IBannerService bannerService;
 
-    @GetMapping("list")
+    @GetMapping("")
     public JsonResult listForIndex(){
 
         return JsonResult.ok(bannerService.listForIndex());

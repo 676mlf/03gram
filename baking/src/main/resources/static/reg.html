@@ -63,10 +63,10 @@
                   </span>
                 </h1>
               </el-form-item>
-              <el-form-item label="用户名"><el-input placeholder="请输入用户名"></el-input></el-form-item>
-              <el-form-item label="密码"><el-input placeholder="请输入密码"></el-input></el-form-item>
-              <el-form-item label="昵称"><el-input placeholder="请输入昵称"></el-input></el-form-item>
-              <el-form-item><el-button type="primary">注册</el-button></el-form-item>
+              <el-form-item label="用户名"><el-input v-model="user.username" placeholder="请输入用户名"></el-input></el-form-item>
+              <el-form-item label="密码"><el-input  v-model="user.password" placeholder="请输入密码"></el-input></el-form-item>
+              <el-form-item label="昵称"><el-input v-model="user.nickName" placeholder="请输入昵称"></el-input></el-form-item>
+              <el-form-item><el-button type="primary" @click="reg()">注册</el-button></el-form-item>
             </el-form>
           </el-col>
         </el-row>
@@ -115,15 +115,29 @@
 <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
 <!-- import JavaScript -->
 <script src="https://cdn.staticfile.org/element-ui/2.15.9/index.min.js"></script>
+<!--<引入axios>-->
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
 <script>
   let v = new Vue({
     el: '#app',
     data: function() {
       return {
-
+        user:{username:"",password:"",nickname:""}
       }
     },
     methods:{
+      reg(){
+        axios.post("/v1/users/reg",v.user).then(function (response) {
+          if(response.data.code==1){
+            location.href="login.html";
+          }else {
+            v.$message.error(response.data.msg);
+          }
+
+        })
+
+
+      }
 
     }
   })

@@ -1,4 +1,4 @@
-package cn.tedu.baking.mapper.impl;
+package cn.tedu.baking.service.impl;
 
 import cn.tedu.baking.mapper.BannerMapper;
 import cn.tedu.baking.pojo.vo.BannerindexVO;
